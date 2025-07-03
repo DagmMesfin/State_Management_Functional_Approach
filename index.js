@@ -6,29 +6,37 @@ const { undoAction, redoAction } = require('./undoRedo');
 
 // Setup state
 let history = { ...appHistory };
+let appState = { ...initialAppState };
+
+// Create a logger instance
 const logger = createLogger('App');
 
-// Dispatch ADD_ITEM events
+// Dispatch events
 const event1 = { type: 'ADD_ITEM', payload: { id: 1, name: 'Apple' } };
 let result = dispatchAction(event1, history, logger);
 history = result.history;
+appState = result.appState;
 
 const event2 = { type: 'ADD_ITEM', payload: { id: 2, name: 'Banana' } };
 result = dispatchAction(event2, history, logger);
 history = result.history;
+appState = result.appState;
 
 const event3 = { type: 'REMOVE_ITEM', payload: { id: 1, name: 'Apple' } };
 result = dispatchAction(event3, history, logger);
 history = result.history;
+appState = result.appState;
 
-console.log('After actions:', history.present);
+console.log('After actions:', appState);
 
 // Undo
 const undo = undoAction(history)();
 history = undo.history;
-console.log('After undo:', history.present);
+appState = undo.appState;
+console.log('After undo:', appState);
 
 // Redo
 const redo = redoAction(history)();
 history = redo.history;
-console.log('After redo:', history.present);
+appState = redo.appState;
+console.log('After redo:', appState);
