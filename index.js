@@ -30,13 +30,13 @@ appState = result.appState;
 console.log('After actions:', appState);
 
 // Undo
-const undo = undoAction(history)();
+const undo = undoAction(history);
 history = undo.history;
 appState = undo.appState;
 console.log('After undo:', appState);
 
 // Redo
-const redo = redoAction(history)();
+const redo = redoAction(history);
 history = redo.history;
 appState = redo.appState;
 console.log('After redo:', appState);

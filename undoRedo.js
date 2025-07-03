@@ -1,6 +1,6 @@
 // undoRedo.js
 
-const undoAction = history => () => {
+const undoAction = history => {
     const { past, present, future } = history;
     if (past.length === 0) return { appState: present, history };
 
@@ -18,7 +18,7 @@ const undoAction = history => () => {
     };
 };
 
-const redoAction = history => () => {
+const redoAction = history => {
     const { past, present, future } = history;
     if (future.length === 0) return { appState: present, history };
 
