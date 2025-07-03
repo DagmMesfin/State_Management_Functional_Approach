@@ -7,7 +7,7 @@ This is a modular state management system built with **pure functions**, **immut
 ## 📦 Features
 
 - 🧱 **Single Source of Truth** (`appState`)
-- ❄️ **Immutable State Updates** using [Immer](https://immerjs.github.io/immer/)
+- ❄️ **Immutable State Updates** using **Immer**
 - ⚙️ **Pure Reducer Function** for predictable state transitions
 - 🔁 **Undo & Redo Functionality** using curried pure functions
 - 🧪 **Dispatch System** for processing actions through the reducer
@@ -101,7 +101,7 @@ const logger = createLogger('MyApp');
 | Curried Functions       | Logger and undo/redo use currying for flexibility      |
 | No Shared Mutable State | Every change creates a new state & history object      |
 | Declarative Logic       | Action-driven state transition via reducer             |
-| Single Source of Truth  | `history.present` holds the true app state             |
+| Single Source of Truth  | `appState` holds the true app state                    |
 
 ---
 

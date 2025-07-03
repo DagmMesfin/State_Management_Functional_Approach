@@ -5,7 +5,6 @@ const initialAppState = {
 
 const appHistory = {
     past: [],
-    present: initialAppState,
     future: [],
 };
 
